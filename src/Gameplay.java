@@ -57,7 +57,6 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener
 		g.setFont(new Font("serif",Font.BOLD, 25));
 		g.drawString(""+score, 590,30);
 		
-		// the paddle
 		g.setColor(Color.green);
 		g.fillRect(playerX, 550, 100, 8);
 		
@@ -65,7 +64,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener
 		g.setColor(Color.RED);
 		g.fillOval(ballposX, ballposY, 20, 20);
 	
-		// when you won the game
+		// win
 		if(totalBricks <= 0)
 		{
 			 play = false;
@@ -80,7 +79,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener
              g.drawString("Press Enter to restart", 230,350);
 		}
 		
-		// when you lose the game
+		// loss
 		if(ballposY > 570)
         {
 			 play = false;
@@ -200,12 +199,12 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener
 							score+=5;	
 							totalBricks--;
 							
-							// when ball hit right or left of brick
+							// when the ball hits the right or left part of a brick
 							if(ballposX + 19 <= brickRect.x || ballposX + 1 >= brickRect.x + brickRect.width)	
 							{
 								ballXdir = -ballXdir;
 							}
-							// when ball hits top or bottom of brick
+							// when the ball hits the top or bottom part of a brick
 							else
 							{
 								ballYdir = -ballYdir;				
